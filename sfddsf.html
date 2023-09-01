@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+
+<style>
+    /* mengatur padding web */
+    * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+
+    /* mengatur lebar responsive web */
+    main {
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+        transition: 0.3s ease-in-out;
+    }
+
+    /* css navbar */
+    nav {
+        position: sticky;
+        transition: 0.3s ease-in-out;
+        z-index: 1000;
+        top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px 30px;
+    }
+
+    .list-nav {
+        margin-top: 3px;
+    }
+
+    nav ul li {
+        display: inline-block;
+        padding: 0 15px;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: black;
+    }
+
+
+    .navbar-icon span {
+        color: #FA759E;
+    }
+
+    .img-hiasan1 {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .img-hiasan1:nth-child(2) {
+        transform: scale(2);
+        right: 450px;
+        opacity: 40%;
+    }
+
+    .header1 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .image-header img {
+        position: relative;
+        z-index: 999;
+        width: 100%;
+    }
+
+    .teks-header {
+        position: relative;
+        z-index: 999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .teks-header .header-element {
+        width: 70%;
+    }
+
+    .animated-icon2 {
+        width: 30px;
+        margin-top: -15px;
+        transform: rotate(0deg);
+        transition: .5s ease-in-out;
+        cursor: pointer;
+    }
+
+    .animated-icon2 span {
+        display: block;
+        position: absolute;
+        height: 3px;
+        border-radius: 9px;
+        opacity: 1;
+        transform: rotate(0deg);
+        transition: .3s ease-in-out;
+    }
+
+
+    .animated-icon2 span {
+        background: black;
+    }
+
+
+    .animated-icon2 span:nth-child(1) {
+        top: 0px;
+        width: 100%;
+
+    }
+
+
+    .animated-icon2 span:nth-child(2) {
+        top: 8px;
+        width: 70%;
+        transform: translateX(8px);
+    }
+
+    .animated-icon2 span:nth-child(3) {
+        top: 16px;
+        width: 40%;
+        transform: translateX(8px);
+    }
+
+
+    .animated-icon2.open span:nth-child(1) {
+        transform: rotate(45deg);
+        top: 8px;
+        background-color: #3A2C60;
+    }
+
+    .animated-icon2.open span:nth-child(2) {
+        transform: scale(0);
+        background-color: #3A2C60;
+    }
+
+    .animated-icon2.open span:nth-child(3) {
+        transform: rotate(-45deg);
+        top: 8px;
+        width: 100%;
+        background-color: #3A2C60;
+    }
+
+    .animated-icon2 {
+        display: none;
+    }
+
+    .header-element input {
+        width: 50%;
+        outline: none;
+        padding: 10px;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        border: none;
+        box-shadow: 0px 3px 2px gray;
+    }
+
+    .header-element form {
+        display: flex;
+        gap: 0;
+    }
+
+    .header-element button {
+        padding: 10px;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        border: none;
+        cursor: pointer;
+        background-color: #3A2C60;
+        color: white;
+        transform: translatex(-3px);
+        box-shadow: 1px 3px 2px gray;
+    }
+
+    .header-element p {
+        color: #5C5470;
+        margin: 10px 0;
+    }
+
+    .scrolled {
+        background-color: white;
+    }
+
+    .subheader {
+        margin-top: 50px;
+        text-align: center;
+        z-index: 999;
+        position: relative;
+    }
+
+    .subheader p {
+        color: #5C5470;
+        margin: auto;
+        width: 80%;
+        margin-bottom: 100px;
+    }
+
+    .icon-subheader {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 100px;
+    }
+
+    .icon-subheader .icon {
+        width: 25%;
+    }
+
+    .icon-subheader .icon img {
+        max-width: 20%;
+    }
+
+    section {
+        font-size: 2rem;
+        padding-top: 200px;
+        margin-top: 100px;
+        background-color: #f5f6f6;
+        position: relative;
+        width: 100%;
+        height: 50vh;
+        overflow: hidden;
+        text-align: center;
+    }
+
+    section .wave {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100px;
+        background-image: url(wave.png);
+        background-size: cover;
+        background-size: 1000px 100px;
+    }
+
+    section .wave:nth-child(1) {
+        z-index: 999;
+        opacity: 1;
+        animation-delay: 0s;
+        bottom: 0;
+        animation: animate 30s linear infinite;
+    }
+
+    section .wave:nth-child(2) {
+        animation: animate2 15s linear infinite;
+        z-index: 998;
+        opacity: 0.5;
+        bottom: 10px;
+        animation-delay: -5s;
+    }
+
+    section .wave:nth-child(3) {
+        z-index: 997;
+        opacity: 0.2;
+        animation-delay: -2s;
+        bottom: 15;
+        animation: animate2 30s linear infinite;
+    }
+    section .wave:nth-child(4) {
+        z-index: 996;
+        opacity: 0.7;
+        animation-delay: -2s;
+        bottom: 20px;
+        animation: animate2 5s linear infinite;
+    }
+  
+
+    @keyframes animate {
+        0% {
+            background-position-x: 0;
+        }
+
+        100% {
+            background-position-x: 1000px;
+        }
+    }
+
+    @keyframes animate2 {
+        0% {
+            background-position-x: 0;
+        }
+
+        100% {
+            background-position-x: -1000px;
+        }
+    }
+
+    @media screen and (max-width: 680px) {
+        .header1 {
+            grid-template-columns: 1fr;
+        }
+
+        .icon-subheader {
+            grid-template-columns: 1fr;
+        }
+    }
+
+
+    @media screen and (max-width: 844px) {
+
+        .teks-header .header-element {
+            width: 80%;
+        }
+
+        nav {
+            flex-direction: column;
+            padding-bottom: 0;
+        }
+
+        nav ul li {
+            padding-top: 15px;
+            display: block;
+        }
+
+        nav ul li:nth-child(5) {
+            padding-bottom: 20px;
+            border-bottom: 1px solid black;
+        }
+
+        .animated-icon2 {
+            display: block;
+        }
+
+        .list-nav {
+            width: 100%;
+            height: 0;
+            overflow: hidden;
+            transition: 0.5s ease-in-out;
+            margin-bottom: 15px;
+        }
+
+        .header-nav {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+
+        .list-nav.active {
+            height: auto;
+        }
+
+        .deactive {
+            display: none;
+        }
+    }
+</style>
+
+<body>
+    <nav>
+
+        <!-- icon navbar -->
+        <div class="header-nav">
+            <h1 class="navbar-icon">divoria <span>.</span></h1>
+
+            <div class="animated-icon2 ">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <!-- isi dari navbar -->
+        <ul class="list-nav">
+            <li>
+                <a href="">About</a>
+            </li>
+            <li>
+                <a href="">consequence</a>
+            </li>
+            <li>
+                <a href="">To address</a>
+            </li>
+            <li>
+                <a href="">obtained</a>
+            </li>
+            <li>
+                <a href="">Let's get acquainted</a>
+            </li>
+        </ul>
+
+
+    </nav>
+    <!-- main container -->
+    <main>
+
+        <!-- navbar -->
+
+        <!-- kepala web -->
+        <header>
+            <img src="blob-haikei.svg" class="img-hiasan1" alt="">
+            <img src="blob-haikei.svg" class="img-hiasan1" alt="">
+            <div class="header1">
+                <div class="teks-header">
+                    <div class="header-element">
+                        <h1>keseimbangan antara hidup dan pekerjaan</h1>
+                        <p>this project by delia aprilyani make with html js and css and this web i make with responsive
+                            system. thanks for you all and i hope this help full</p>
+                        <form action="">
+                            <input type="text" name="" id="">
+                            <button>Give Feedback</button>
+
+                        </form>
+                    </div>
+                </div>
+                <div class="image-header">
+                    <img src="Desain tanpa judul (8).svg" alt="">
+                </div>
+            </div>
+        </header>
+        <div class="subheader">
+            <span>what you know?</span>
+            <h1>Mengapa keseimbangan antara hidup dan pekerjaan itu penting?</h1>
+            <p>Keseimbangan antara hidup dan pekerjaan, yang sering disebut sebagai "work-life balance," sangat penting
+                karena memiliki
+                dampak positif pada kesejahteraan dan kebahagiaan seseorang.</p>
+
+            <div class="icon-subheader">
+                <div class="icon">
+                    <img src="noun-family-2854181.svg" alt="">
+                    <h4>keluarga</h4>
+                    <small>selalu coba fikirkan orang di dekat kita jika kita terlalu fokus bekerja</small>
+                </div>
+                <div class="icon">
+                    <img src="noun-work-hard-5544902.svg" alt="">
+                    <h4>Bingung</h4>
+                    <small>sesuatu yang tidak di leakukan secara stabil tidak akan menghasilkan sebuah
+                        keberhasilan</small>
+                </div>
+                <div class="icon">
+                    <img src="noun-succes-2724918.svg" alt="">
+                    <h4>sukses</h4>
+                    <small>sukses di usia muda memang cita cita semua orang tetapi kita juga harus pintar mengolah
+                        waktu</small>
+                </div>
+            </div>
+        </div>
+
+       
+
+    </main>
+
+    <section>
+        <h4>tenggelam di lautan fakta</h4>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+    </section>
+
+    <script>
+        const burgerMenu = document.querySelector('.animated-icon2');
+        const menu = document.querySelector('.list-nav');
+        const main = document.querySelector('main');
+
+        burgerMenu.addEventListener('click', () => {
+            burgerMenu.classList.toggle('open');
+            menu.classList.toggle('active');
+            main.classList.toggle('deactive');
+
+        });
+
+        function removeClassOnSmallScreens() {
+            const screenWidth = window.innerWidth;
+            const burgerMenu = document.querySelector('.animated-icon2');
+            const menu = document.querySelector('.list-nav');
+            const main = document.querySelector('main');
+
+            if (screenWidth >= 844) {
+                burgerMenu.classList.remove('open');
+                menu.classList.remove('active');
+                main.classList.remove('deactive');
+
+            }
+        }
+
+        // Panggil fungsi saat halaman dimuat dan saat ukuran layar berubah
+        window.addEventListener('resize', removeClassOnSmallScreens);
+
+
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+    </script>
+</body>
+
+</html>
