@@ -473,11 +473,13 @@
         const burgerMenu = document.querySelector('.animated-icon2');
         const menu = document.querySelector('.list-nav');
         const main = document.querySelector('main');
+        const section = document.querySelector('section');
 
         burgerMenu.addEventListener('click', () => {
             burgerMenu.classList.toggle('open');
             menu.classList.toggle('active');
             main.classList.toggle('deactive');
+            section.classList.toggle('deactive');
 
         });
 
